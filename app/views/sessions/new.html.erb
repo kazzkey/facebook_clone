@@ -6,3 +6,7 @@
   <%= f.password_field :password, placeholder: "６文字以上" %><br><br>
   <%= f.submit "ログイン" %>
 <% end %>
+<br>
+<div class="sign-up-message">
+  New user? <%= link_to 'Sign up now!', new_user_path %>
+</div>

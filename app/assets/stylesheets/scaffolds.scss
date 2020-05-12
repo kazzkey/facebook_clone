@@ -73,6 +73,9 @@ div {
     list-style: square;
   }
 }
+.sign-up-message a {
+  text-decoration: underline;
+}
 .clearfix:after {
   content: "";
   display: block;

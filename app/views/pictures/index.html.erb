@@ -1,41 +1,46 @@
-<h1 class="contents-title">
-  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> タイムライン
-</h1>
-
-<div class="btn btn-menu" role="button">
-  <%= link_to "新規作成", new_picture_path %>
-</div>
-<% @pictures.each do |picture| %>
-  <div class="row">
-    <div class="content col-md-6 col-sm-12">
-      <div class="user-name">
-        <p><%= picture.user.name %></p>
-        <p>投稿日：<%= picture.created_at.strftime('%Y/%m/%d') %></p>
-      </div>
-      <div class="thumbnail">
-          <%= image_tag picture.image_url %>
-      </div>
-      <div class="caption">
-        <h4><%= picture.content %></h4>
-        <br>
-        <% if picture.user_id == current_user.id %>
-          <span class="btn" role="button">
-            <%= link_to 'Show', picture %>
-          </span>
-          <span class="btn" role="button">
-            <%= link_to 'Edit', edit_picture_path(picture) %>
-          </span>
-          <span class="btn" role="button">
-            <%= link_to 'Destroy', picture, method: :delete,
-                                            data: { confirm: '削除してよろしいですか？' } %>
-          </span>
-        <% else %>
-          <span class="btn" role="button">
-            <%= link_to 'Show', picture %>
-          </span>
-        <% end %>
+<% if logged_in? %>
+  <h1 class="contents-title">
+    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> タイムライン
+  </h1>
+  <div class="btn btn-menu" role="button">
+    <%= link_to "新規作成", new_picture_path %>
+  </div>
+  <% @pictures.each do |picture| %>
+    <div class="row">
+      <div class="content col-md-6 col-sm-12">
+        <div class="user-name">
+          <p><%= picture.user.name %></p>
+          <p>投稿日：<%= picture.created_at.strftime('%Y/%m/%d') %></p>
+        </div>
+        <div class="thumbnail">
+            <%= image_tag picture.image_url %>
+        </div>
+        <div class="caption">
+          <h4><%= picture.content %></h4>
+          <br>
+          <% if picture.user_id == current_user.id %>
+            <span class="btn" role="button">
+              <%= link_to 'Show', picture %>
+            </span>
+            <span class="btn" role="button">
+              <%= link_to 'Edit', edit_picture_path(picture) %>
+            </span>
+            <span class="btn" role="button">
+              <%= link_to 'Destroy', picture, method: :delete,
+                                              data: { confirm: '削除してよろしいですか？' } %>
+            </span>
+          <% else %>
+            <span class="btn" role="button">
+              <%= link_to 'Show', picture %>
+            </span>
+          <% end %>
+        </div>
       </div>
     </div>
+  <% end %>
+<% else %>
+  <h1 class="contents-title">ログインしてください</h1>
+  <div class="btn btn-menu" role="button">
+    <%= link_to "Login", new_session_path %>
   </div>
 <% end %>
-<br>
