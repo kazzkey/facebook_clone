@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<h1 class="contents-title">ユーザのページ</h1>
+<p>ようこそ<%= @user.name %>さん！</p>
+<br>
+<p>ユーザ登録情報</p>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -10,6 +12,7 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <%= link_to 'Pictureページへ', pictures_path %>
-</p>
+<p>pictureページへ</p>
+<button>
+  <%= link_to '作成', pictures_path %>
+</button>

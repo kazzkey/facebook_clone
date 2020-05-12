@@ -1,6 +1,9 @@
-<h1>編集画面</h1>
+<h1 class="contents-title">
+  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>　編集画面
+</h1>
 
 <%= render 'form', picture: @picture %>
 
-<%= link_to 'Show', @picture %> |
-<%= link_to 'Back', pictures_path %>
+<div class="btn btn-menu" role="button">
+  <%= link_to 'Back', pictures_path %>
+</div>

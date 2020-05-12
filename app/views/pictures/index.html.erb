@@ -1,29 +1,27 @@
-<h1>Pictures</h1>
+<h1 class="contents-title">
+  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Content</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= image_tag picture.image_url %></td>
-        <td><%= picture.content %></td>
-        <td><%= picture.user.name %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="btn btn-menu" role="button">
+  <%= link_to "新規作成", new_picture_path %>
+</div>
+<% @pictures.each do |picture| %>
+  <div class="row">
+    <div class="content col-md-6 col-sm-12">
+      <div class="user-name">
+        <p><%= picture.user.name %></p>
+      </div>
+      <div class="thumbnail">
+          <%= image_tag picture.image_url %>
+      </div>
+      <div class="caption">
+        <h4><%= picture.content %></h4>
+        <br>
+        <span class="btn" role="button"><%= link_to 'Show', picture %></span>
+        <span class="btn" role="button"><%= link_to 'Edit', edit_picture_path(picture) %></span>
+        <span class="btn" role="button"><%= link_to 'Destroy', picture, method: :delete, data: { confirm: '削除してよろしいですか？' } %></span>
+      </div>
+    </div>
+  </div>
+<% end %>
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>

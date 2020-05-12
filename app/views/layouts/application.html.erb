@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ComunityApp</title>
+    <title>KAO-BON</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,16 +10,31 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div>
+          <h1>KAO-BON</h1>
+        </div>
+        <nav>
+          <ul class="nav navbar-nav navbar-right clearfix">
+            <% if logged_in? %>
+              <li><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_path %></li>
+              <li><%= link_to "Login", new_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+　　 <div class="container contents">
+      <div class="alert" role="alert">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>

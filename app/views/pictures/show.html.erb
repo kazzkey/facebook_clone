@@ -1,19 +1,24 @@
-<h1>詳細画面</h1>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @picture.image.url %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @picture.content %>
-</p>
+<h1 class="contents-title">
+  <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span> 詳細画面
+</h1>
 
 <p>
   <strong>User:</strong>
   <%= @picture.user.name %>
 </p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image.url %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @picture.content %>
+</p>
+<br>
+<div class="btn btn-menu" role="button">
+  <%= link_to 'Edit', edit_picture_path(@picture) %>
+</div>
+ |
+<div class="btn btn-menu" role="button">
+  <%= link_to 'Back', pictures_path %>
+</div>

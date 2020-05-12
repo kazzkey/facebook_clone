@@ -1,5 +1,10 @@
-<h1>新規投稿</h1>
+<h1 class="contents-title">
+  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 新規投稿
+</h1>
 
 <%= render 'form', picture: @picture %>
 
-<%= link_to 'Back', pictures_path %>
+
+<div class="btn btn-menu" role="button">
+  <%= link_to 'Back', pictures_path %>
+</div>
