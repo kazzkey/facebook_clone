@@ -1,4 +1,4 @@
-<h1>アカウント登録画面</h1>
+<h1 class="contents-title">アカウント登録画面</h1>
 
 <%= form_with(model: @user, local: true) do |f| %>
   <% if @user.errors.any? %>
@@ -14,22 +14,22 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "(例)田中太郎" %>
   </div>
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, placeholder: "(例)aaa@bbb.com" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: "６文字以上" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "６文字以上" %>
   </div>
   <br>　
   <div class="actions">

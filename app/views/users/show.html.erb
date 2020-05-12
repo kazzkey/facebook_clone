@@ -1,6 +1,5 @@
-<h1 class="contents-title">ユーザのページ</h1>
-<p>ようこそ<%= @user.name %>さん！</p>
-<br>
+<h1 class="contents-title">ようこそ、<%= @user.name %>さん！</h1>
+
 <p>ユーザ登録情報</p>
 <p>
   <strong>Name:</strong>
@@ -11,8 +10,7 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
-<p>pictureページへ</p>
-<button>
-  <%= link_to '作成', pictures_path %>
-</button>
+<br>
+<div class="btn btn-menu" role="button">
+  <%= link_to 'ピクチャページへ移動', pictures_path %>
+</div>
