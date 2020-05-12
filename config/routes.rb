@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
+  root to: 'pictures#index'
 end
