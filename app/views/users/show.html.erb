@@ -1,20 +1,16 @@
-<% if @user.id == current_user.id %>
-  <h1 class="contents-title">ようこそ、<%= @user.name %>さん！</h1>
+<h1 class="contents-title">ようこそ、<%= @user.name %>さん！</h1>
 
-  <p>ユーザ登録情報</p>
-  <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </p>
+<p>ユーザ登録情報</p>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
-  <br>
-  <div class="btn btn-menu" role="button">
-    <%= link_to 'タイムラインへ移動', pictures_path %>
-  </div>
-<% else %>
-  <p>表示できません</p>
-<% end %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<br>
+<div class="btn btn-menu" role="button">
+  <%= link_to 'タイムラインへ移動', pictures_path %>
+</div>
